@@ -86,9 +86,9 @@ bin/:
 
 .PHONY: build
 build:
-	go build -tags '${TAGS}' ${LDFLAGS} -o ${BUILD_DIR}/${BINARY_NAME} ${PACKAGE}/cmd/${BINARY_NAME}
+	go build -tags '${TAGS}' ${LDFLAGS} -o ${BUILD_DIR}/${BINARY_NAME} ${PACKAGE}/cmd
 
 .PHONY: run
 run: build
-	./bin/${BINARY_NAME}
+	./${BUILD_DIR}/${BINARY_NAME}
 
