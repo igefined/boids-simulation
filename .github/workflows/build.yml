@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint:
+  build:
   
     runs-on: ubuntu-latest
 
@@ -19,3 +19,6 @@ jobs:
 
     - name: Run lint
       run: make lint
+
+    - name: Run build
+      run: make build
