@@ -2,7 +2,7 @@ PACKAGE = $(shell go list -m)
 BINARY_NAME = boids-simulation
 BUILD_DIR = dist
 # golang-ci tag
-GOLANGCI_TAG:=1.56.0
+GOLANGCI_TAG:=1.57.0
 # Path to the binary
 LOCAL_BIN:=$(CURDIR)/bin
 # Path to the binary golang-ci
