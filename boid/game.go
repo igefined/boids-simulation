@@ -3,21 +3,24 @@ package boid
 
 import (
 	"image/color"
+	"log"
+	"sync"
 
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
 const (
-	screenWidth, screenHeight = 640, 360
+	screenWidth, screenHeight = 720, 480
 	boidCount                 = 500
 	viewRadius                = 13
 	adjustmentRate            = 0.015
 )
 
 var (
-	green   = color.RGBA{10, 255, 50, 255}
+	green   = color.RGBA{R: 60, G: 179, B: 133, A: 255}
 	boids   = [boidCount]*Boid{}
 	boidMap = [screenWidth + 1][screenHeight + 1]int{}
+	lock    = sync.RWMutex{}
 )
 
 type Game struct{}
@@ -54,10 +57,10 @@ func Run() {
 		go boids[i].start()
 	}
 
-	ebiten.SetWindowSize(screenWidth*2, screenHeight*2)
+	ebiten.SetWindowSize(screenWidth, screenHeight)
 	ebiten.SetWindowTitle("Boids in a box")
 
 	if err := ebiten.RunGame(&Game{}); err != nil {
-		return
+		log.Fatal(err)
 	}
 }

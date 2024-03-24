@@ -19,3 +19,7 @@ make build
 #run the application
 make run
 ```
+
+### Boids into box
+
+![](https://github.com/igefined/boids-simulation/blob/main/boids.gif)
